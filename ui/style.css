@@ -1,0 +1,150 @@
+body {
+    overflow: hidden;
+    font-family: Inter, sans-serif;
+    user-select: none;
+}
+
+.cursor-eye {
+    transform: translate(24px, 24px);
+    display: none;
+
+}
+
+.cursor-eye .eye {
+    transition: transform 0.2s cubic-bezier(.02,1.23,.79,1.08);
+    color: #28EDFA;
+    width: 28px;
+    animation: blink 1s infinite ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes blink {
+    0% {
+       opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.contextMenu {
+    --menu-border: rgba(40, 237, 250, 0.2);
+    --menu-bg: linear-gradient(
+      45deg,
+      rgba(0, 68, 80, 0.2) 0%,
+      rgba(0, 68, 80, 0.7) 100%
+    );
+    --item-border: rgba(0, 0, 0, 0.1);
+    --item-color: rgb(255, 255, 255);
+    --item-bg-hover: rgba(0, 0, 0, 0.4);
+    height: 0;
+    min-width: 130px;
+    overflow: hidden;
+    background: var(--menu-bg);
+    /* -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px); */
+    position: fixed;
+    top: var(--top);
+    left: var(--left);
+    -webkit-animation: menuAnimation 0.4s 0s both;
+            animation: menuAnimation 0.4s 0s both;
+    transform-origin: left;
+    list-style: none;
+    margin: 4px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 999999999;
+    box-shadow: 0 0 0 1px var(--menu-border), 0 2px 2px rgba(0, 0, 0, 0.03), 0 4px 4px rgba(0, 0, 0, 0.04), 0 10px 8px rgba(0, 0, 0, 0.05), 0 15px 15px rgba(0, 0, 0, 0.06), 0 30px 30px rgba(0, 0, 0, 0.07), 0 70px 65px rgba(0, 0, 0, 0.09);
+  }
+
+  .contextMenu-item {
+    padding: 4px;
+  }
+
+  .contextMenu-button {
+    color: var(--item-color);
+    font-weight: 600;
+    background: 0;
+    border: 0;
+    white-space: nowrap;
+    width: 100%;
+    border-radius: 4px;
+    padding: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    width: 100%;
+    -webkit-animation: menuItemAnimation 0.2s 0s both;
+            animation: menuItemAnimation 0.2s 0s both;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+  }
+
+  .contextMenu-button:hover {
+    background-color: var(--item-bg-hover);
+  }
+
+  .contextMenu-button i {
+    margin-right: 8px;
+  }
+
+  .contextMenu-button .subIcon {
+    margin-left: auto;
+    padding: 0 8px;
+    margin-right: 0;
+  }
+
+  @-webkit-keyframes menuAnimation {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      height: var(--height);
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes menuAnimation {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      height: var(--height);
+      opacity: 1;
+      border-radius: 8px;
+      transform: scale(1);
+    }
+  }
+  @-webkit-keyframes menuItemAnimation {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes menuItemAnimation {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
