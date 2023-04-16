@@ -44,29 +44,29 @@ You can add priority for options, if you want at top of menu options you should 
 ### Both right, left clickable example.
 ```
 {
-						label = v.label,
-						event = "e " .. v.action,
-						icon = "fa-solid fa-face-smile",
-						type = "animation",
-						subOptions = {
-							{
-								label = "Remove Animation",
-								icon = "fa-solid fa-trash",
-								action = function()
-									for i = 1, #animations do
-										if animations[i].action == v.action then
-											table.remove(animations, i)
-											break
-										end
-									end
+	label = v.label,
+	event = "e " .. v.action,
+	icon = "fa-solid fa-face-smile",
+	type = "animation",
+	subOptions = {
+		{
+			label = "Remove Animation",
+			icon = "fa-solid fa-trash",
+			action = function()
+				for i = 1, #animations do
+					if animations[i].action == v.action then
+						table.remove(animations, i)
+						break
+					end
+				end
 
-									TriggerServerEvent('luck-contextmenu:SetFastActions', animations, "animations")
+				TriggerServerEvent('luck-contextmenu:SetFastActions', animations, "animations")
 
-									AddFastActions(animations, commands)
-								end
-							}
-						}
-					}
+				AddFastActions(animations, commands)
+			end
+		}
+	}
+}
 ```
 
 ##### Submenus example.
